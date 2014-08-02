@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head lang="en" class="no-js">
+    <meta charset="UTF-8">
+    <title>Swordfish</title>
+    <link rel="stylesheet" type="text/css" href="public/css/font-awesome.css">
+    <link rel="stylesheet" type="text/css" href="public/css/main.css">
+    <script type="text/javascript" src="app/components/require/require.js"></script>
+    <script type="text/javascript" src="app/components/require.config.js"></script>
+    <script type="text/javascript">
+        require(['app'], function() {})
+    </script>
+</head>
+<body>
+
+    <!-- Sidebar -->
+    <section class="sidebar">
+        <div class="sidebar-wrap">
+            <div class="branding">
+                <h1>
+                    <a href="/">
+                        Swordfish
+                    </a>
+                </h1>
+            </div>
+            <nav class="nav">
+                <ul>
+                    <li ng-include="'app/views/dashboardList.html'" ng-controller="dashboardList"></li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-gears nav-left"></i>
+                            <span class="nav-text">Settings</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#">
+                            <i class="fa fa-support nav-left"></i>
+                            <span class="nav-text">Help & Support</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </section>
+    <!-- END Sidebar -->
+    <!-- AngularJS View Holder -->
+    <div class="content" ng-view>
+
+    </div>
+    <!-- END AngularJS View Holder -->
+    <script type="text/javascript" src="app/components/jquery-1.11.1.js"></script>
+</body>
+</html>

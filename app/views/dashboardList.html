@@ -1,0 +1,11 @@
+<a href="#" class="menu-toggle">
+    <i class="fa fa-cube nav-left"></i>
+    <span class="nav-text">Dashboards</span>
+    <i class="fa fa-ellipsis-v nav-right"></i>
+</a>
+<ul class="sub-nav" style="display: none;">
+    <li ng-repeat="dash in dashList">
+        <a href="#/dash/{{dash.id}}">{{dash.title}}</a>
+    </li>
+</ul>
+<script type="text/javascript" src="public/js/sub-nav.js"></script>
