@@ -3,7 +3,9 @@ define([
     'angularRoute',
     'lodash',
     'jquery',
-    'require'
+    'require',
+    'bootstrap',
+    'subnav'
 ], function(angular, $, _) {
 
     'use strict';
@@ -16,25 +18,26 @@ define([
         //Dependencies for app bootstrap
         app_deps = ['swordfish'];
 
-    app.config(function($routeProvider, $controllerProvider) {
+    app.config(function($routeProvider, $controllerProvider, $provide) {
 
         $routeProvider
-            .when('/dash', {
+            .when('/dashboard', {
                 templateUrl: 'app/views/dash.html'
             })
-            .when('/dash/:name', {
+            .when('/dashboard/:name', {
                 templateUrl: 'app/views/dash.html'
             })
             .otherwise({
-                redirectTo: '/dash'
+                redirectTo: '/dashboard'
             });
 
         //As suggested by bit.ly/XswlCC
-        app.controller = $controllerProvider.register;
+        app.controller  = $controllerProvider.register;
+        app.service     = $provide.service;
     });
 
     //Add modules for controllers, services etc...
-    _.each('controllers'.split(' '),  function(type) {
+    _.each('controllers,services'.split(','),  function(type) {
        var module_name = 'swordfish.' + type;
         boot_deps.push(angular.module(module_name, []));
         app_deps.push(module_name);
@@ -44,6 +47,8 @@ define([
         'controllers/all'
     ], function() {
         angular.element(document).ready(function() {
+            jQuery('html').attr('ng-controller', 'DashboardCtrl')
+
             angular.bootstrap(document, app_deps).invoke(['$rootScope', function(m) {
                 _.each(boot_deps, function(m) {
                     _.extend(m, register_fns);

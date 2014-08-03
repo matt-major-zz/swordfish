@@ -1,8 +1,9 @@
 <!DOCTYPE html>
-<html>
-<head lang="en" class="no-js">
+<html lang="en" class="no-js">
+<head>
     <meta charset="UTF-8">
     <title>Swordfish</title>
+    <link rel="stylesheet" type="text/css" href="public/css/bootstrap.css">
     <link rel="stylesheet" type="text/css" href="public/css/font-awesome.css">
     <link rel="stylesheet" type="text/css" href="public/css/main.css">
     <script type="text/javascript" src="app/components/require/require.js"></script>
@@ -18,6 +19,7 @@
         <div class="sidebar-wrap">
             <div class="branding">
                 <h1>
+                    <i class="fa fa-terminal"></i>
                     <a href="/">
                         Swordfish
                     </a>
@@ -25,18 +27,13 @@
             </div>
             <nav class="nav">
                 <ul>
-                    <li ng-include="'app/views/dashboardList.html'" ng-controller="dashboardList"></li>
                     <li>
-                        <a href="#">
-                            <i class="fa fa-gears nav-left"></i>
-                            <span class="nav-text">Settings</span>
+                        <a href="#" class="menu-toggle">
+                            <i class="fa fa-cube nav-left"></i>
+                            <span class="nav-text">Dashboards</span>
+                            <i class="fa fa-angle-double-down nav-right"></i>
                         </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-support nav-left"></i>
-                            <span class="nav-text">Help & Support</span>
-                        </a>
+                        <ul ng-include="'app/views/dashboardList.html'" ng-controller="dashboardList"></ul>
                     </li>
                 </ul>
             </nav>

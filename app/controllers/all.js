@@ -1,3 +1,4 @@
 define([
-    './dashboardList'
+    './dashboardList',
+    './dashboard'
 ], function() {});
