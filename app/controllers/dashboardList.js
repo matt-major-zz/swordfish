@@ -8,17 +8,15 @@ define([
 
     module.controller('dashboardList', function($scope, $http) {
 
-        //Dummy data for building...
-        var list = [
-            {
-                "title": "Test 1",
-                "id": "1"
-            }
-        ];
+        var query = "{\"query\" : {\"match_all\" : {}}}";
 
-        //TODO Add true list generation...
-
-        $scope.dashList = list;
+        $http.post('http://localhost:9200/swordfish/_search', query)
+            .success(function(res) {
+                $scope.dashboards = res.hits.hits;
+            })
+            .error(function(res) {
+                console.error(res);
+            });
 
     });
 

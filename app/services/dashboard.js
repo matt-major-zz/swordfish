@@ -8,7 +8,7 @@ define([
 
     var module = angular.module('swordfish.services');
 
-    module.service('dashboard', function($routeParams, $rootScope) {
+    module.service('dashboard', function($routeParams, $rootScope, $http) {
 
         //An empty dashboard...
         var _dashboard = {
@@ -30,13 +30,22 @@ define([
 
         var dash = function() {
                 if($routeParams.name) {
-                    var d = {title: $routeParams.name, description: "Hello, world."};
-                    self.current = _.clone(d);
+                    self.dashLoad($routeParams.name);
                 } else {
                     var d = {title: "Default", description: "Hello, world."};
                     self.current = _.clone(d);
                 }
             };
+
+        this.dashLoad = function(name) {
+            $http.get('http://localhost:9200/swordfish/dashboard/' + name)
+                .then(function(data) {
+                    self.current = _.clone(data.data._source);
+                });
+
+            return true;
+        };
+
     });
 
 });
