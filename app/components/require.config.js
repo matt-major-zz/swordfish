@@ -6,7 +6,6 @@ require.config({
         jquery          :   'components/jquery-1.11.1',
         lodash          :   'components/lodash/lodash',
         bootstrap       :   'components/bootstrap/bootstrap',
-        subnav          :   'components/bootstrap/sub-nav',
         settings        :   'settings'
     },
     shim: {
@@ -19,7 +18,6 @@ require.config({
         },
         bootstrap: {
             deps: ['jquery']
-        },
-        subnav: ['jquery']
+        }
     }
 });

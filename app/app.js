@@ -4,8 +4,7 @@ define([
     'lodash',
     'jquery',
     'require',
-    'bootstrap',
-    'subnav'
+    'bootstrap'
 ], function(angular, $, _) {
 
     'use strict';
@@ -22,10 +21,10 @@ define([
 
         $routeProvider
             .when('/dashboard', {
-                templateUrl: 'app/views/dash.html'
+                templateUrl: 'app/views/dashboard.html'
             })
             .when('/dashboard/:name', {
-                templateUrl: 'app/views/dash.html'
+                templateUrl: 'app/views/dashboard.html'
             })
             .otherwise({
                 redirectTo: '/dashboard'
@@ -47,7 +46,7 @@ define([
         'controllers/all'
     ], function() {
         angular.element(document).ready(function() {
-            jQuery('html').attr('ng-controller', 'DashboardCtrl')
+            jQuery('html').attr('ng-controller', 'DashboardCtrl');
 
             angular.bootstrap(document, app_deps).invoke(['$rootScope', function(m) {
                 _.each(boot_deps, function(m) {

@@ -21,7 +21,7 @@ define([], function() {
          *  The path to the dashboard that should be used when none
          *  is provided in the URL.
          */
-        default_dash: '/dashboards/default.json'
+        default_dash: 'app/dashboards/default.json'
     };
 
     //Expose the settings...

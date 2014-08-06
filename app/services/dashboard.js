@@ -8,7 +8,7 @@ define([
 
     var module = angular.module('swordfish.services');
 
-    module.service('dashboard', function($routeParams, $rootScope, $http) {
+    module.service('dashboard', function($routeParams, $rootScope, $http, notification) {
 
         //An empty dashboard...
         var _dashboard = {
@@ -24,26 +24,37 @@ define([
         $rootScope.$on('$routeChangeSuccess', function() {
             //Clear existing dashboard...
             self.current = {};
-            //...rerun our function to get the dashboard.
+            //Clear notifications...
+            notification.clear();
+            //...then rerun our function to get the dashboard.
             dash();
         });
 
         var dash = function() {
                 if($routeParams.name) {
-                    self.dashLoad($routeParams.name);
+                    self.dashLoad($routeParams.name, 'es');
                 } else {
-                    var d = {title: "Default", description: "Hello, world."};
-                    self.current = _.clone(d);
+                    self.dashLoad('default', 'default');
                 }
             };
 
-        this.dashLoad = function(name) {
-            $http.get('http://localhost:9200/swordfish/dashboard/' + name)
-                .then(function(data) {
-                    self.current = _.clone(data.data._source);
-                });
-
-            return true;
+        this.dashLoad = function(name, type) {
+            if(type === 'es') {
+                $http.get('http://localhost:9200/swordfish/dashboard/' + name)
+                    .success(function(data) {
+                        self.current = _.clone(data._source);
+                    })
+                    .error(function(data) {
+                        //If we can't load up the dashboard, we need to trigger a notification.
+                        notification.add('Unable to load "' + name + '". Does it exist? Is ElasticSearch down?');
+                        return false;
+                    });
+            } else {
+                $http.get(settings.default_dash)
+                    .then(function(data) {
+                        self.current = _.clone(data.data);
+                    });
+            };
         };
 
     });

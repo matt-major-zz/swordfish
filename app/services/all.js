@@ -1,3 +1,4 @@
 define([
     './dashboard',
+    './notification'
 ], function() {});
