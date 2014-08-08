@@ -1,3 +1,11 @@
 {
-    "title": "Default"
+    "title": "Default",
+    "alerts": [
+    	{
+    		"title": "Test Alert 1",
+    		"size": 12,
+    		"query": "{\"query\" : {\"match_all\" : {}}}",
+    		"color": "#000"
+    	}
+    ]
 }

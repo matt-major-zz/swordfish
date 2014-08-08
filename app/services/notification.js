@@ -11,16 +11,21 @@ define([
 
         this.all = [];
 
-        this.add = function(message) {
+        this.add = function(message, timeout) {
             var notification = {message: message || ''};
 
             self.all.push(notification);
 
-            return notification;
-        };
+            //If notification has a timeout...
+            if(timeout > 0) {
+                //Run this function upon the timeout...
+                $timeout(function() {
+                    //Reset the list of all notifications without this one...
+                    self.all = _.without(self.all, notification);
+                }, timeout);
+            }
 
-        this.remove = function(message) {
-            console.log('Removing error: ' + message);
+            return notification;
         };
 
         this.clear = function() {

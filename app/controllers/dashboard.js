@@ -9,14 +9,14 @@ define([
     module.controller('DashboardCtrl', function($scope, dashboard, notification) {
 
         $scope.init = function() {
+            //Expose the dashboard from dashboard service...
             $scope.dashboard = dashboard;
+            //Expose the notifications service...
             $scope.notifications = notification;
-
-            //When loading, ensure we don't carry over alerts.
+            //Clear down the notifications...
             notification.clear();
-            //notification.add('A Test Error', 5000);
         };
-
+        
         $scope.init();
     });
 

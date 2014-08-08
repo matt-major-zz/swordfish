@@ -4,7 +4,7 @@ define([
     'lodash',
     'settings'
 ], function(angular, $, _, settings) {
-    'use strict';
+    'usCouldn\'t load dashboards list. Is ElasticSearch down? :(e strict';
 
     var module = angular.module('swordfish.services');
 
@@ -12,12 +12,11 @@ define([
 
         //An empty dashboard...
         var _dashboard = {
-            title: "",
-            description: ""
-        };
-
-        //Store this...
-        var self = this;
+                title: "",
+                description: ""
+            },
+            self = this,
+            time = 1000;
 
         this.current = _.clone(_dashboard);
 
@@ -40,13 +39,21 @@ define([
 
         this.dashLoad = function(name, type) {
             if(type === 'es') {
-                $http.get('http://localhost:9200/swordfish/dashboard/' + name)
+                $http.get(settings.elasticsearchUrl + name)
                     .success(function(data) {
                         self.current = _.clone(data._source);
                     })
-                    .error(function(data) {
-                        //If we can't load up the dashboard, we need to trigger a notification.
-                        notification.add('Unable to load "' + name + '". Does it exist? Is ElasticSearch down?');
+                    .error(function(data, status) {
+                        if(status === 404) {
+                            //If dashboard doesn't exist...
+                            notification.add('"' + name + '" is not a valid dashboard. Please try again.', 0);
+                        } else if (status === 0) {
+                            //If ElasticSearch is unreachable...
+                            notification.add('Unable to connect to ElasticSearch. URL: ' + settings.elasticsearchUrl, 0);
+                        } else {
+                            //Unknown failure...
+                            notification.add('Unknown error. Details: ' + data, 0);
+                        }
                         return false;
                     });
             } else {
