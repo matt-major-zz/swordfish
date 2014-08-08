@@ -26,4 +26,4 @@ define([], function() {
 
     //Expose the settings...
     return settings;
-})
+});

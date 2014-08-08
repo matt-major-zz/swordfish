@@ -54,7 +54,7 @@ define([
                     .then(function(data) {
                         self.current = _.clone(data.data);
                     });
-            };
+            }
         };
 
     });

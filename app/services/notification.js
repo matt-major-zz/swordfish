@@ -11,16 +11,16 @@ define([
 
         this.all = [];
 
-        this.add = function(error) {
-            var error = {error: error || ''};
+        this.add = function(message) {
+            var notification = {message: message || ''};
 
-            self.all.push(error);
+            self.all.push(notification);
 
-            return error;
+            return notification;
         };
 
-        this.remove = function(error) {
-            console.log('Removing error: ' + error);
+        this.remove = function(message) {
+            console.log('Removing error: ' + message);
         };
 
         this.clear = function() {

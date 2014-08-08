@@ -12,7 +12,7 @@
         require(['app'], function() {})
     </script>
 </head>
-<body>
+<body ng-cloak>
 
     <!-- Sidebar -->
     <header class="navbar navbar-default" role="navigation">
@@ -39,12 +39,12 @@
     </header>
     <!-- END Sidebar -->
     <!-- Alerts -->
-    <div ng-cloak ng-repeat="e in notifications.all" ng-show="$last" class="alert alert-danger" role="alert">
+    <div ng-repeat="message in notifications.all" ng-show="$last" class="alert alert-danger" role="alert">
         <span>
             <i class="fa fa-warning"></i>
             Error
         </span>
-        {{e.error}}
+        {{message.message}}
     </div>
     <!-- END Alerts -->
     <!-- AngularJS View Holder -->
