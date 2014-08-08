@@ -4,7 +4,7 @@ define([
     'lodash',
     'settings'
 ], function(angular, $, _, settings) {
-    'usCouldn\'t load dashboards list. Is ElasticSearch down? :(e strict';
+    'use strict';
 
     var module = angular.module('swordfish.services');
 
