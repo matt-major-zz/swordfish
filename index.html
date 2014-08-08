@@ -18,24 +18,27 @@
     <header class="navbar navbar-default" role="navigation">
         <div class="navbar-header">
             <h1 class="navbar-brand">
-                <i class="fa fa-terminal"></i>
                 Swordfish
             </h1>
         </div>
-        <p class="navbar-text">
-            {{dashboard.current.title ? dashboard.current.title : ""}}
-        </p>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="#/dashboard">
+                    <i class="fa fa-home"></i>
+                </a>
+            </li>
             <li class="dropdown">
                 <a href class="dropdown-toggle" data-toggle="dropdown">
-                    Dashboards
-                    <span class="fa fa-cube"></span>
+                    <i class="fa fa-flask"></i>
                 </a>
                 <ul class="dropdown-menu" role="menu" ng-include="'app/views/dashboardList.html'" ng-controller="dashboardList">
 
                 </ul>
             </li>
         </ul>
+        <p class="navbar-text navbar-right">
+            Current: {{dashboard.current.title ? dashboard.current.title : ""}}
+        </p>
     </header>
     <!-- END Sidebar -->
     <!-- Alerts -->

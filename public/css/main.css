@@ -2,7 +2,7 @@ body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
     font-size: 14px;
     background: rgb(241, 241, 241);
-    color: rgb(83, 83, 83);
+    color: rgb(53, 53, 53);
     height: 100%;
     width: 100%;
     padding: 0;
@@ -28,11 +28,7 @@ body {
 .navbar-default {
     border: none;
     border-radius: 0;
-    background: rgb(85, 85, 85);
-}
-
-.navbar-brand {
-    padding: 15px 25px;
+    padding-right: 10px;
     background: rgb(53, 53, 53);
 }
 
@@ -58,10 +54,9 @@ body {
     margin-right: 0;
 }
 
-.navbar-default .navbar-nav > li > a {
-    font-weight: 100;
-    letter-spacing: 2px;
-    border-left: 1px solid rgb(90, 90, 90);
+.navbar-default .navbar-nav > li > a,
+.navbar-default .navbar-nav > .open > a {
+    transition: 0.5s all;
 }
 
 .navbar-default .navbar-nav > li > a,
@@ -71,17 +66,36 @@ body {
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
     color: rgb(255, 255, 255);
-    transition: all 0.5s;
-
 }
 
 .navbar-default .navbar-nav > li > a:hover,
-.navbar-default .navbar-nav > li > a:focus,
+.navbar-default .navbar-nav > li > a:focus {
+    padding-bottom: 13px;
+    background: rgb(53, 53, 53);
+    border-bottom: 2px solid rgb(255, 99, 71);
+}
+
 .navbar-default .navbar-nav > .open > a,
 .navbar-default .navbar-nav > .open > a:hover,
 .navbar-default .navbar-nav > .open > a:focus {
+    background: rgb(255, 99, 71);
+}
+
+.dropdown-menu {
     background: rgb(53, 53, 53);
-    border-left: 1px solid rgb(53, 53, 53);
+    border: none;
+    border-radius: 0;
+}
+
+.dropdown-menu > li > a {
+    color: rgb(255, 255, 255);
+    font-size: 14px;
+}
+
+.dropdown-menu > li > a:hover {
+    color: rgb(255, 255, 255);
+    background: rgb(255, 99, 71);
+    border: none;
 }
 
 .alert {
