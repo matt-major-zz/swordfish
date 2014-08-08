@@ -1,8 +1,11 @@
 swordfish
 =========
 
-``swordfish`` is an AngularJS & ElasticSearch based custom monitoring system.
+``swordfish`` is inspired by Kibana & Nagios and is being built using AngularJS and ElasticSearch.
 
-Inspired by Kibana, ``swordfish`` uses ElasticSearch data to create custom notifications when thresholds are breached.
-
-``swordfish`` is very much a work in progress so may not provide full functionality straight away.
+##Project Goals
++ Ability to create custom JSON based alerts that run user-defined ElasticSearch queries.
++ Visualise the results as histograms
++ Provide a threshold value for each alert which will notify visually when breached.
++ Ability to create, amend & delete alerts/dashboards from the UI.
++ Ability to define core application settings from the UI.
