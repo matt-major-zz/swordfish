@@ -2,10 +2,19 @@
     "title": "Default",
     "alerts": [
     	{
-    		"title": "Test Alert 1",
-    		"size": 12,
-    		"query": "{\"query\" : {\"match_all\" : {}}}",
-    		"color": "#000"
-    	}
+    		"title": "Test Alert 1"
+    	},
+    	{
+    		"title": "Test Alert 2"
+    	},
+        {
+            "title": "Test Alert 3"
+        },
+        {
+            "title": "Test Alert 4"
+        },
+        {
+            "title": "Test Alert 5"
+        }
     ]
 }

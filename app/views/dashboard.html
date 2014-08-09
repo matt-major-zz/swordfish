@@ -1,0 +1,8 @@
+<div class="alert-row" ng-controller="AlertCtrl" ng-repeat="alert in dashboard.current.alerts">
+	<div class="alert-header">
+		<p>
+			<i class="fa fa-th-large alert-{{status}}"></i>
+			{{alert.title}}
+		</p>
+	</div>
+</div>

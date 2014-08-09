@@ -1,13 +1,12 @@
 body {
     font-family: "Helvetica Neue",Helvetica,Arial,sans-serif !important;
     font-size: 14px;
-    background: rgb(241, 241, 241);
-    color: rgb(53, 53, 53);
+    background: rgb(53, 53, 53);
+    color: rgb(255, 255, 255);
     height: 100%;
     width: 100%;
     padding: 0;
     margin: 0;
-    min-width: 768px;
 }
 
 /* Prevent AngularJS uncompiled template from rendering while app is still loading.. */
@@ -29,7 +28,7 @@ body {
     border: none;
     border-radius: 0;
     padding-right: 10px;
-    background: rgb(53, 53, 53);
+    background: rgb(31, 31, 31);
 }
 
 .navbar-header .navbar-brand {
@@ -83,7 +82,7 @@ body {
 }
 
 .dropdown-menu {
-    background: rgb(53, 53, 53);
+    background: rgb(31, 31, 31);
     border: none;
     border-radius: 0;
     box-shadow: none;
@@ -115,9 +114,44 @@ body {
 
 .alert-danger {
     background: rgb(255, 99, 71);
-    color: rgb(53, 53, 53);
+    color: rgb(31, 31, 31);
 }
 
 .content {
     padding: 10px 25px 0 25px;
+}
+
+.alert-row {
+    margin-top: 10px;
+}
+
+.alert-row:first-of-type {
+    margin-top: 0;
+}
+
+.alert-row > .alert-header {
+    padding: 5px 10px;
+}
+
+.alert-row > .alert-header > p {
+    padding: 0;
+    margin: 0;
+    font-size: 13px;
+    color: rgb(135, 135, 135);
+}
+
+.alert-row > .alert-header > p > i {
+    margin-right: 5px;
+}
+
+.alert-row > .alert-header > p > i.alert-ok {
+    color: rgb(50, 205, 50);
+}
+
+.alert-row > .alert-header > p > i.alert-warn {
+    color: rgb(255, 153, 18);
+}
+
+.alert-row > .alert-header > p > i.alert-critical {
+    color: rgb(255, 99, 71);
 }

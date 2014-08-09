@@ -1,4 +1,5 @@
 define([
     './dashboardList',
-    './dashboard'
+    './dashboard',
+    './alert'
 ], function() {});
