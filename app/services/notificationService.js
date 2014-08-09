@@ -6,7 +6,7 @@ define([
 
     var module = angular.module('swordfish.services');
 
-    module.service('notification', function($timeout) {
+    module.service('notificationService', function($timeout) {
         var self = this;
 
         this.all = [];

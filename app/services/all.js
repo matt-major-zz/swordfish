@@ -1,4 +1,4 @@
 define([
-    './dashboard',
-    './notification'
+    './dashboardService',
+    './notificationService'
 ], function() {});

@@ -8,7 +8,7 @@ define([
 
     var module = angular.module('swordfish.services');
 
-    module.service('dashboard', function($routeParams, $rootScope, $http, notification) {
+    module.service('dashboardService', function($routeParams, $rootScope, $http, notificationService) {
 
         //An empty dashboard...
         var _dashboard = {
@@ -24,7 +24,7 @@ define([
             //Clear existing dashboard...
             self.current = {};
             //Clear notifications...
-            notification.clear();
+            notificationService.clear();
             //...then rerun our function to get the dashboard.
             dash();
         });
@@ -46,13 +46,13 @@ define([
                     .error(function(data, status) {
                         if(status === 404) {
                             //If dashboard doesn't exist...
-                            notification.add('"' + name + '" is not a valid dashboard. Please try again.', 0);
+                            notificationService.add('"' + name + '" is not a valid dashboard. Please try again.', 0);
                         } else if (status === 0) {
                             //If ElasticSearch is unreachable...
-                            notification.add('Unable to connect to ElasticSearch. URL: ' + settings.elasticsearchUrl, 0);
+                            notificationService.add('Unable to connect to ElasticSearch. URL: ' + settings.elasticsearchUrl, 0);
                         } else {
                             //Unknown failure...
-                            notification.add('Unknown error. Details: ' + data, 0);
+                            notificationService.add('Unknown error. Details: ' + data, 0);
                         }
                         return false;
                     });

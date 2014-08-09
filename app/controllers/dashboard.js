@@ -6,15 +6,15 @@ define([
 
     var module = angular.module('swordfish.controllers');
 
-    module.controller('DashboardCtrl', function($scope, dashboard, notification) {
+    module.controller('DashboardCtrl', function($scope, dashboardService, notificationService) {
 
         $scope.init = function() {
             //Expose the dashboard from dashboard service...
-            $scope.dashboard = dashboard;
+            $scope.dashboard = dashboardService;
             //Expose the notifications service...
-            $scope.notifications = notification;
+            $scope.notifications = notificationService;
             //Clear down the notifications...
-            notification.clear();
+            notificationService.clear();
         };
         
         $scope.init();

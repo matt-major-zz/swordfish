@@ -8,7 +8,7 @@ define([
 
     var module = angular.module('swordfish.controllers');
 
-    module.controller('dashboardList', function($scope, $http, notification) {
+    module.controller('DashboardListCtrl', function($scope, $http, notificationService) {
 
         var query = "{\"query\" : {\"match_all\" : {}}}";
 
@@ -17,7 +17,7 @@ define([
                 $scope.dashboards = res.hits.hits;
             })
             .error(function(res) {
-                notification.add('Couldn\'t load dashboards list. Is ElasticSearch down? :(', 10000);
+                notificationService.add('Couldn\'t load dashboards list. Is ElasticSearch down? :(', 10000);
             });
 
     });
