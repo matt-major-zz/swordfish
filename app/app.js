@@ -4,6 +4,7 @@ define([
     'lodash',
     'jquery',
     'require',
+    'elasticjs',
     'bootstrap'
 ], function(angular, $, _) {
 
@@ -15,7 +16,7 @@ define([
         //Holder for registering...
         register_fns = {},
         //Dependencies for app bootstrap
-        app_deps = ['swordfish'];
+        app_deps = ['elasticjs.service', 'swordfish'];
 
     app.config(function($routeProvider, $controllerProvider, $provide) {
 

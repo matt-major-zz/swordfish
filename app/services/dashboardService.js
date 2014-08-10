@@ -8,15 +8,14 @@ define([
 
     var module = angular.module('swordfish.services');
 
-    module.service('dashboardService', function($routeParams, $rootScope, $http, notificationService) {
+    module.service('dashboardService', function($routeParams, $rootScope, $http, notificationService, ejsResource) {
 
-        //An empty dashboard...
-        var _dashboard = {
+        var es = ejsResource(settings.elasticsearchUrl),
+            _dashboard = {
                 title: "",
                 description: ""
             },
-            self = this,
-            time = 1000;
+            self = this;
 
         this.current = _.clone(_dashboard);
 
@@ -39,7 +38,7 @@ define([
 
         this.dashLoad = function(name, type) {
             if(type === 'es') {
-                $http.get(settings.elasticsearchUrl + name)
+                $http.get(settings.elasticsearchUrl + '/' + settings.elasticsearchIndex + '/dashboard/' + name)
                     .success(function(data) {
                         self.current = _.clone(data._source);
                     })

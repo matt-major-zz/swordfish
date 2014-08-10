@@ -123,6 +123,7 @@ body {
 
 .alert-row {
     margin-top: 10px;
+    height: 100px;
 }
 
 .alert-row:first-of-type {
@@ -145,7 +146,7 @@ body {
 }
 
 .alert-row > .alert-header > p > i.alert-ok {
-    color: rgb(50, 205, 50);
+    color: rgb(58, 58, 58);
 }
 
 .alert-row > .alert-header > p > i.alert-warn {

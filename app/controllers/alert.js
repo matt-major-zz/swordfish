@@ -6,7 +6,7 @@ define([
 
     var module = angular.module('swordfish.controllers');
 
-    module.controller('AlertCtrl', function($scope, dashboardService, notificationService) {
+    module.controller('AlertCtrl', function($scope) {
 
         $scope.init = function() {
             $scope.status = getRandomStatus();

@@ -11,15 +11,13 @@ define([], function() {
          *  The URL at which your ElasticSearch instance is running.
          *  For example: http://localhost:9200/
          */
-        elasticsearchUrl: 'http://localhost:9200/swordfish/dashboard/',
+        elasticsearchUrl: 'http://localhost:9200',
         /*  elasticsearchIndex
-         *  The name of the index in your ElasticSearch instance
-         *  where your data can be found.
+         *  The name of the index in your ElasticSearch instance where your data can be found.
          */
         elasticsearchIndex: 'swordfish',
         /*  default_dash
-         *  The path to the dashboard that should be used when none
-         *  is provided in the URL.
+         *  The path to the dashboard that should be used when none is provided in the URL.
          */
         default_dash: 'app/dashboards/default.json'
     };

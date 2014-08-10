@@ -8,17 +8,22 @@ define([
 
     var module = angular.module('swordfish.controllers');
 
-    module.controller('DashboardListCtrl', function($scope, $http, notificationService) {
+    module.controller('DashboardListCtrl', function($scope, notificationService, ejsResource) {
 
-        var query = "{\"query\" : {\"match_all\" : {}}}";
+        var es = ejsResource(settings.elasticsearchUrl);
 
-        $http.post(settings.elasticsearchUrl + '_search', query)
-            .success(function(res) {
-                $scope.dashboards = res.hits.hits;
-            })
-            .error(function(res) {
-                notificationService.add('Couldn\'t load dashboards list. Is ElasticSearch down? :(', 10000);
-            });
+        es.Request()
+            .indices(settings.elasticsearchIndex)
+            .types('dashboard')
+            .query(es.QueryStringQuery('*'))
+            .doSearch(
+                function(result) {
+                    $scope.dashboards = result.hits.hits;
+                },
+                function(result) {
+                    notificationService.add('Couldn\'t load dashboards list. Is ElasticSearch down? :(', 10000);
+                }
+            );
 
     });
 

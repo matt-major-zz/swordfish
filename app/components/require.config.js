@@ -6,7 +6,8 @@ require.config({
         jquery          :   'components/jquery-1.11.1',
         lodash          :   'components/lodash/lodash',
         bootstrap       :   'components/bootstrap/bootstrap',
-        settings        :   'settings'
+        settings        :   'settings',
+        elasticjs       :   'components/elasticjs/elastic-angular-client'
     },
     shim: {
         angular: {
@@ -18,6 +19,7 @@ require.config({
         },
         bootstrap: {
             deps: ['jquery']
-        }
+        },
+        elasticjs: ['angular', 'components/elasticjs/elastic']
     }
 });
