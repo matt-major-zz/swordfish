@@ -123,15 +123,12 @@ body {
 
 .alert-row {
     margin-top: 10px;
+    padding: 5px 10px;
     height: 100px;
 }
 
 .alert-row:first-of-type {
     margin-top: 0;
-}
-
-.alert-row > .alert-header {
-    padding: 5px 10px;
 }
 
 .alert-row > .alert-header > p {
@@ -146,7 +143,7 @@ body {
 }
 
 .alert-row > .alert-header > p > i.alert-ok {
-    color: rgb(58, 58, 58);
+    color: rgb(9, 205, 9);
 }
 
 .alert-row > .alert-header > p > i.alert-warn {
@@ -155,4 +152,8 @@ body {
 
 .alert-row > .alert-header > p > i.alert-critical {
     color: rgb(255, 99, 71);
+}
+
+.alert-row > .alert-header > p > span.right {
+    float: right;
 }

@@ -16,6 +16,7 @@ define([], function() {
          *  The name of the index in your ElasticSearch instance where your data can be found.
          */
         elasticsearchIndex: 'swordfish',
+        elasticsearchDataIndex: 'my_twitter_river',
         /*  default_dash
          *  The path to the dashboard that should be used when none is provided in the URL.
          */
