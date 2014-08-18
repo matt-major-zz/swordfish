@@ -9,15 +9,15 @@ define([
 
     var module = angular.module('swordfish.controllers');
 
-    module.controller('AlertCtrl', function($rootScope, $scope, ejsResource, notificationService) {
+    module.controller('AlertCtrl', function($scope, ejsResource, notificationService) {
 
         $scope.init = function() {
-            $scope.getData($scope.$parent.alert);
+            $scope.getData($scope.$parent);
         };
 
         $scope.getData = function($scope) {
             var es = ejsResource(settings.elasticsearchUrl),
-                query = $scope.query;
+                query = $scope.alert.query;
 
             es.Request()
                 .indices(settings.elasticsearchDataIndex)
@@ -38,27 +38,27 @@ define([
                         if (_d.length > 0) {
                             var last_count = _d[_d.length - 1].count;
                             
-                            if(last_count < $scope.warnTrigger) {
-                                $scope.status = 'ok';
-                            } else if (last_count >= $scope.warnTrigger && last_count < $scope.critTrigger) {
-                                $scope.status = 'warn';
-                            } else if (last_count > $scope.critTrigger) {
-                                $scope.status = 'critical';
+                            if(last_count < $scope.alert.warnTrigger) {
+                                $scope.alert.status = 'ok';
+                            } else if (last_count >= $scope.alert.warnTrigger && last_count < $scope.alert.critTrigger) {
+                                $scope.alert.status = 'warn';
+                            } else if (last_count > $scope.alert.critTrigger) {
+                                $scope.alert.status = 'critical';
                             } else {
-                                $scope.status = 'ok';
+                                $scope.alert.status = 'ok';
                             }
 
-                            $scope.last = last_count;
+                            $scope.alert.last = last_count;
                         } else {
-                            $scope.status = 'ok';
-                            $scope.last = 0;
+                            $scope.alert.status = 'ok';
+                            $scope.alert.last = 0;
                         }
 
-                        $rootScope.$broadcast('render', _d);
+                        $scope.$broadcast('render', _d);
                     },
                     function(result) {
                         notificationService.add('Error Executing ElasticSearch Query: ' + result.error);
-                        $scope.status = 'critical';
+                        $scope.alert.status = 'critical';
                     }
                 );
         };

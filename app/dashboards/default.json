@@ -7,6 +7,20 @@
 	      	"critTrigger": 500,
 	      	"query": "*",
 	      	"color": "#EE4000"
+	    },
+	    {
+      		"title": "Hello Events",
+	      	"warnTrigger": 250,
+	      	"critTrigger": 500,
+	      	"query": "hello",
+	      	"color": "#EE2"
+	    },
+	    {
+      		"title": "Cheese Events",
+	      	"warnTrigger": 50,
+	      	"critTrigger": 200,
+	      	"query": "cheese",
+	      	"color": "#AA2"
 	    }
     ]
 }
