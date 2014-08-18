@@ -131,6 +131,18 @@ body {
     margin-top: 0;
 }
 
+.alert-row > .alert-header {
+    padding: 0 5px;
+}
+
+.alert-row > .alert-header.warn {
+    border: 1px dashed rgb(255, 153, 18);
+}
+
+.alert-row > .alert-header.critical {
+    border: 1px dashed rgb(255, 99, 71);
+}
+
 .alert-row > .alert-header > p {
     padding: 0;
     margin: 0;

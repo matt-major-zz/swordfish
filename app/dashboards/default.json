@@ -3,10 +3,10 @@
     "alerts": [
     	{
       		"title": "All Events",
-	      	"warnTrigger": 100,
-	      	"critTrigger": 250,
+	      	"warnTrigger": 250,
+	      	"critTrigger": 500,
 	      	"query": "*",
-	      	"color": "#63B8FF"
+	      	"color": "#EE4000"
 	    }
     ]
 }

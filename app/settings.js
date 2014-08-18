@@ -13,9 +13,12 @@ define([], function() {
          */
         elasticsearchUrl: 'http://localhost:9200',
         /*  elasticsearchIndex
-         *  The name of the index in your ElasticSearch instance where your data can be found.
+         *  The name of the index containing you Swordfish dashboards.
          */
         elasticsearchIndex: 'swordfish',
+        /* elasticsearchDataIndex
+         * The name of the index containing your alertable data.
+         */
         elasticsearchDataIndex: 'my_twitter_river',
         /*  default_dash
          *  The path to the dashboard that should be used when none is provided in the URL.

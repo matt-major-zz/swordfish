@@ -1,9 +1,10 @@
-<div class="alert-row" ng-controller="AlertCtrl" ng-repeat="alert in dashboard.current.alerts">
-	<div class="alert-header">
+<div ng-controller="AlertCtrl" ng-init="init()" ng-repeat="alert in dashboard.current.alerts" class="alert-row">
+	<div class="alert-header {{alert.status}}">
 		<p>
 			<i class="fa fa-warning alert-{{alert.status}}"></i>
 			{{alert.title}}
 			<span class="right">{{alert.last}} Events</span>
 		</p>
 	</div>
+	<div alert-graph style="height:80px;width:100%"></div>
 </div>
