@@ -92,7 +92,7 @@ define([
                     var labels = [],
                         values = [];
 
-                    for (var i = 0; i < data.length; i++) {
+                    for (var i = 0, l = data.length; i < l; i++) {
                         labels.push(timeConvert(data[i].time));
                         values.push(data[i].count);
                     }
@@ -128,9 +128,6 @@ define([
                         },
                         legend: {
                             enabled: false
-                        },
-                        tooltip: {
-                            enabled: false,
                         },
                         series: [{name: 'Count', data: values, color: scope.alert.color}]
                     };

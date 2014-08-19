@@ -123,8 +123,9 @@ body {
 
 .alert-row {
     margin-top: 10px;
-    padding: 5px 10px;
+    padding: 5px 5px;
     height: 100px;
+    background: rgb(63, 63, 63);
 }
 
 .alert-row:first-of-type {
